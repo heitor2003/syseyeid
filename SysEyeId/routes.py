@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect
 from SysEyeId import app, database, bcrypt
 from flask_login import login_required, login_user, logout_user, current_user
 from SysEyeId.forms import FormLogin, FormCriarConta, FormExame, FormContato
@@ -6,6 +6,8 @@ from SysEyeId.models import Usuario, Exame, Mensagem
 import os
 from werkzeug.utils import secure_filename
 
+
+app = Flask(__name__)
 
 @app.route("/")
 def homepage():
