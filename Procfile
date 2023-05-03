@@ -1,3 +1,1 @@
-web: gunicorn routes.wsgi:application --log-file - --log-level debug
-python manage.py collectstatic --noinput
-manage.py migrate
+web: gunicorn routes:sys_eye_id_app

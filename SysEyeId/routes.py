@@ -7,7 +7,7 @@ import os
 from werkzeug.utils import secure_filename
 
 
-app = Flask(__name__)
+sys_eye_id_app = Flask(__name__)
 
 @app.route("/")
 def homepage():
@@ -101,5 +101,5 @@ def area_logada():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    sys_eye_id_app.run(debug=True)
 
