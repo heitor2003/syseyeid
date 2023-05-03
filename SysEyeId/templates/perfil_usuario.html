@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+{% block titulo %}
+	SYS EYE ID - Perfil
+{% endblock %}
+
+<body>
+	<header>
+		{% block header %}
+		<div class="logo">
+			<img src="{{ url_for('static', filename='exames/olho.png') }}" alt="Logo SYS EYE ID">
+			<h1>SYS EYE ID</h1>
+		</div>
+		<a class="login-btn" href="{{ url_for('logout') }}">Sair</a>
+		{% endblock %}
+	</header>
+	{% block body %}
+	<main>
+		<section id="user-info">
+			<div class="container">
+				<h2>Informações do Usuário</h2>
+				<p><strong>Nome:</strong> {{ usuario.username }}</p>
+				<p><strong>Email:</strong> {{ usuario.email }}</p>
+				<p><strong>Endereço:</strong> {{ usuario.endereco }}</p>
+				<p><strong>Clínica:</strong> {{ usuario.clinica }}</p>
+				<p><strong>Médico:</strong> {{ usuario.medico }}</p>
+			</div>
+			<div class="container">
+				<h1>Aplicação</h1>
+				<h3>Upload de exames</h3>
+				{% if form %}
+				<form method="post" enctype="multipart/form-data">
+					{{ form.csrf_token }}
+
+					{{ form.exame() }}
+					{{ form.botao_confirmacao() }}
+				</form>
+				{% endif %}
+			</div>
+			<div class="container">
+				<h1>Exames Realizados</h1>
+				{% for exame in usuario.exame %}
+					<img src="{{ url_for('static', filename='exames/{}'.format(exame.imagem)) }}"
+						 alt="Exame realizado">
+				{% endfor %}
+			</div>
+		</section>
+	</main>
+	{% endblock %}
+</body>

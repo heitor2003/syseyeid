@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block titulo %}
+	SYS EYE ID - Login
+{% endblock %}
+
+<body>
+	{% block body %}
+	<main>
+		<section id="login">
+			<div class="container">
+				{% block formulario %}
+				<h2>Login</h2>
+				<form method="POST">
+					{{ form.csrf_token }}
+					{{ form.email.label() }}
+					{{ form.email() }}
+
+					{{ form.senha.label() }}
+					{{ form.senha() }}
+
+					{{ form.botao_confirmacao() }}
+				</form>
+				<p>Ainda não tem uma conta clique <a href="{{ url_for('cadastro') }}">aqui</a> para criar</p>
+				{% endblock %}
+			</div>
+		</section>
+	</main>
+
+	{% endblock %}
+</body>

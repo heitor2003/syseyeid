@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>
+		{% block titulo %}
+		SYS EYE ID
+		{% endblock %}
+	</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+	<header>
+		{% block header %}
+		<div class="logo">
+			<img src="{{ url_for('static', filename='exames/olho.png') }}" alt="Logo SYS EYE ID">
+			<h1>SYS EYE ID</h1>
+		</div>  
+		<div class="container">
+			<nav>
+				<ul>
+					<!--% if usuario %-->
+					<li><a href="{{ url_for('homepage') }}">Início</a></li>
+					<li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+			    	<li><a href="{{ url_for('servicos') }}">Serviços</a></li>
+					<li><a href="{{ url_for('contato') }}">Contato</a></li>
+
+				</ul>
+			</nav>
+		</div>
+		{% endblock %}
+	</header>
+	{% block body%}
+	<main>
+		<a class="login-btn" href="{{ url_for('login') }}">Login</a>
+		<section id="hero">
+			<div class="container">
+				<h2>Soluções em Diagnóstico Oftalmológico</h2>
+				<p>Obtenha diagnósticos precisos e confiáveis com a tecnologia de ponta do SYS EYE ID.</p>
+			</div>
+		</section>
+
+		<section id="services">
+			<div class="container">
+				<h2><a href="servicos">Nossos Serviços</a></h2>
+				<ul>
+					<li>Diagnóstico de Catarata</li>
+					<li>Diagnóstico de Glaucoma</li>
+					<li>Diagnóstico de Degeneração Macular</li>
+					<li>Diagnóstico de Retinopatia Diabética</li>
+				</ul>
+			</div>
+		</section>
+	</main>
+	{% endblock %}
+	<footer>
+		<p>&copy; 2023 SYS EYE ID. Todos os direitos reservados.</p>
+	</footer>
+
+</body>
+</html>
