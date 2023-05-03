@@ -7,7 +7,7 @@ import os
 from werkzeug.utils import secure_filename
 
 
-app1 = Flask(__name__)
+app = Flask(__name__)
 
 @app.route("/")
 def homepage():
@@ -101,5 +101,5 @@ def area_logada():
 
 
 if __name__ == "__main__":
-    app1.run(debug=True)
+    app.run(debug=True)
 
